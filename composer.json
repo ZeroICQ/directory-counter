@@ -1,0 +1,17 @@
+{
+    "name": "zeroicq/directory-counter",
+    "description": "PHP CLI app recursively summing numbers from \"count\" files.",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Zeroicq\\DirectoryCounter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "zeroicq"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
