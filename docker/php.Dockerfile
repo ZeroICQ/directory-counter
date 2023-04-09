@@ -4,7 +4,7 @@ ARG COMPOSER_BIN=/usr/bin/composer
 ARG COMPOSER_VERSION=2.5.5
 ARG COMPOSER_SHA256SUM=566a6d1cf4be1cc3ac882d2a2a13817ffae54e60f5aa7c9137434810a5809ffc
 
-RUN apk add --no-cache tini
+RUN apk add --no-cache tini make
 
 RUN set -ex ;\
   wget -O "$COMPOSER_BIN" "https://getcomposer.org/download/$COMPOSER_VERSION/composer.phar" ;\

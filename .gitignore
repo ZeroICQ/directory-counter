@@ -2,3 +2,6 @@
 .idea
 # deps
 /vendor/
+
+# cache
+.php-cs-fixer.cache

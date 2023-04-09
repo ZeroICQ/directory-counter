@@ -1,3 +1,5 @@
+BIN := vendor/bin
+
 .DEFAULT_GOAL := help
 
 -include makefiles/*.Makefile
