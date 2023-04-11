@@ -7,6 +7,13 @@ ARG COMPOSER_SHA256SUM=566a6d1cf4be1cc3ac882d2a2a13817ffae54e60f5aa7c9137434810a
 RUN apk add --no-cache tini make gmp-dev
 RUN docker-php-ext-install gmp
 
+RUN apk add --no-cache --virtual BuildDeps autoconf g++ linux-headers \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug \
+    && rm -rf /tmp/pear; apk del BuildDeps;
+
+
+
 RUN set -ex ;\
   wget -O "$COMPOSER_BIN" "https://getcomposer.org/download/$COMPOSER_VERSION/composer.phar" ;\
   printf "%s  %s\n" "$COMPOSER_SHA256SUM" "$COMPOSER_BIN" | sha256sum -c - ;\
@@ -14,6 +21,8 @@ RUN set -ex ;\
   composer --version ;\
   composer diagnose || printf 'composer diagnose exited: %d\n' $? ;\
   :
+
+COPY ./docker/docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/
 
 ENTRYPOINT ["/sbin/tini", "--"]
 WORKDIR /app

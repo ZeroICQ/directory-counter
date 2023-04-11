@@ -21,7 +21,8 @@
     "require": {
         "php": "^8.2",
         "symfony/console": "^6.2",
-        "ext-gmp": "*"
+        "ext-gmp": "*",
+        "symfony/event-dispatcher": "^6.2"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.16",

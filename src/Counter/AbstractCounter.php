@@ -13,7 +13,9 @@ abstract class AbstractCounter implements CounterInterface
             return;
         }
         if (!preg_match('/^-?\\d+$/', $number)) {
-            throw new \ValueError("\"{$number}\" is not an integer.");
+            $numberTruncated = substr($number, 0, 20).'...';
+
+            throw new \ValueError("\"{$numberTruncated}\" is not an integer.");
         }
     }
 }

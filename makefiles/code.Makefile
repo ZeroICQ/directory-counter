@@ -20,4 +20,4 @@ code/check: code/cs-dry-run code/phpstan
 .PHONY: code/test
 ## Run PHPUnit tests
 code/test:
-	$(BIN)/phpunit tests
+	$(BIN)/phpunit
