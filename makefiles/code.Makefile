@@ -15,4 +15,4 @@ code/cs-dry-run:
 
 .PHONY: code/check
 ## Code check
-code/check: code/cs-dry-run
+code/check: code/cs-dry-run code/phpstan
