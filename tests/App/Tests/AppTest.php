@@ -8,14 +8,33 @@ use Symfony\Component\Console\Tester\CommandTester;
 
 class AppTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+    }
+
     public function testFixtures(): void
     {
-        $application = new App();
-        $application->setAutoExit(false);
+        $appTester = $this->runApplication(__DIR__.'/../../../fixtures');
+
+        $this->assertSame(0, $appTester->getStatusCode());
+        $count = $this->getOutputValue($appTester);
+        $this->assertSame('122', $count);
+    }
+
+    /**
+     * Helper to run application.
+     */
+    private function runApplication(string $filePath): CommandTester
+    {
+        $application = (new App())
+            ->setAutoExit(false)
+        ;
+
         $appTester = new CommandTester($application);
-        $code = $appTester->execute(
+        $appTester->execute(
             [
-                'path' => '/app/fixtures',
+                'path' => $filePath,
             ],
             [
                 'decorated' => false,
@@ -23,11 +42,17 @@ class AppTest extends TestCase
                 'capture_stderr_separately' => true,
             ]
         );
-        //        $code = $appTester->execute(['command' => $application->getName(), '/app/fixtures'], );
-        $this->assertSame(0, $code);
+
+        return $appTester;
+    }
+
+    /**
+     * Parse output to get count value.
+     */
+    private function getOutputValue(CommandTester $appTester): string
+    {
         $lines = explode(PHP_EOL, $appTester->getDisplay());
-        $count = explode(' ', $lines[count($lines) - 2])[1];
-        $this->assertSame('122', $count);
-        //        $this->assertSame('a', $appTester->getDisplay());
+
+        return explode(' ', $lines[count($lines) - 2])[1];
     }
 }
