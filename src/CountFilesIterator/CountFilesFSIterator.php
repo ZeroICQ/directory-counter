@@ -16,11 +16,6 @@ class CountFilesFSIterator implements CountFilesIteratorInterface
     ) {
     }
 
-    public function getRootPath(): string
-    {
-        return $this->rootPath;
-    }
-
     public function getIterator(): \Traversable
     {
         return $this->gen();

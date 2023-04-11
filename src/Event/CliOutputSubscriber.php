@@ -24,6 +24,6 @@ class CliOutputSubscriber implements EventSubscriberInterface
 
     public function onFileOpenException(FileOpenExceptionEvent $event): void
     {
-        $this->output->writeln("\n<info>Could not read file \"{$event->getFilePath()}\". Error: {$event->getException()->getMessage()}</info>");
+        $this->output->writeln("<info>Could not read file \"{$event->getFilePath()}\". Error: {$event->getException()->getMessage()}</info>");
     }
 }

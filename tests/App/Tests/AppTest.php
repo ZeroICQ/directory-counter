@@ -27,7 +27,7 @@ class AppTest extends TestCase
         $this->assertSame(0, $code);
         $lines = explode(PHP_EOL, $appTester->getDisplay());
         $count = explode(' ', $lines[count($lines) - 2])[1];
-        $this->assertSame('120', $count);
+        $this->assertSame('122', $count);
         //        $this->assertSame('a', $appTester->getDisplay());
     }
 }

@@ -6,7 +6,6 @@ use App\Counter\Counter;
 use App\CountFilesIterator\CountFilesFSIterator;
 use App\Event\CliOutputSubscriber;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -32,8 +31,6 @@ class App extends SingleCommandApplication
 
         $counter = new Counter();
         $counterFilesIterator = new CountFilesFSIterator($path, $eventDispatcher);
-
-        $progressBar = new ProgressBar($output);
 
         foreach ($counterFilesIterator as $filePath => $value) {
             try {
