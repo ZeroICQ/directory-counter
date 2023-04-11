@@ -16,3 +16,8 @@ code/cs-dry-run:
 .PHONY: code/check
 ## Code check
 code/check: code/cs-dry-run code/phpstan
+
+.PHONY: code/test
+## Run PHPUnit tests
+code/test:
+	$(BIN)/phpunit tests
