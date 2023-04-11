@@ -17,7 +17,7 @@ class App extends SingleCommandApplication
 {
     public function __construct()
     {
-        parent::__construct('Directory counter');
+        parent::__construct('Counter');
     }
 
     protected function configure(): void
