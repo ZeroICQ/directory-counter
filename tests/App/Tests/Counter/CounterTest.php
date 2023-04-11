@@ -5,15 +5,15 @@ namespace App\Tests\Counter;
 use App\Counter\Counter;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use ValueError;
 
 class CounterTest extends TestCase
 {
     public function testDefaultInit(): void
     {
         $c = new Counter();
-        $this->assertSame("0", $c->getValue());
+        $this->assertSame('0', $c->getValue());
     }
+
     public function testIntInit(): void
     {
         $c = new Counter(1234);
@@ -22,16 +22,15 @@ class CounterTest extends TestCase
 
     public function testFloatStrInit(): void
     {
-        $this->expectException(ValueError::class);
+        $this->expectException(\ValueError::class);
         $c = new Counter('112.5111111111');
     }
 
     public function testInitValueException(): void
     {
-        $this->expectException(ValueError::class);
-        $c = new Counter("totally not a number");
+        $this->expectException(\ValueError::class);
+        $c = new Counter('totally not a number');
     }
-
 
     /**
      * @return array<int[]>
@@ -60,7 +59,7 @@ class CounterTest extends TestCase
     public function testFloatSum(): void
     {
         $c = new Counter();
-        $this->expectException(ValueError::class);
+        $this->expectException(\ValueError::class);
         $c->add('-12.13');
     }
 
@@ -70,5 +69,4 @@ class CounterTest extends TestCase
         $c->add('10');
         $this->assertSame('9223372036854775817', $c->getValue());
     }
-
 }

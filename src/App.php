@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\CounterFileIterator\BasicCounter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,8 +13,6 @@ class App extends SingleCommandApplication
     public function __construct()
     {
         parent::__construct('Directory counter');
-
-
     }
 
     protected function configure(): void
@@ -23,12 +20,11 @@ class App extends SingleCommandApplication
         $this->setVersion('0.1')->addArgument('path', InputArgument::REQUIRED);
     }
 
-
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $path = $input->getArgument('path');
         $output->writeln($path);
+
         return Command::SUCCESS;
     }
-
 }

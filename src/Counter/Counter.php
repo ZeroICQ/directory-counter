@@ -2,17 +2,12 @@
 
 namespace App\Counter;
 
-use GMP;
-use ValueError;
-
 class Counter extends AbstractCounter
 {
-    private GMP $value;
+    private \GMP $value;
 
     /**
-     * @param string|int $start
-     *
-     * @throws ValueError
+     * @throws \ValueError
      */
     public function __construct(string|int $start = 0)
     {
@@ -36,5 +31,4 @@ class Counter extends AbstractCounter
     {
         return gmp_strval($this->value);
     }
-
 }
