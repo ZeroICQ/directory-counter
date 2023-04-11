@@ -3,6 +3,11 @@
 code/cs:
 	$(BIN)/php-cs-fixer fix --verbose
 
+ .PHONY: code/phpstan
+## Run phpstan
+code/phpstan:
+	$(BIN)/phpstan analyse
+
 .PHONY: code/cs-dry-run
 ## CS check
 code/cs-dry-run:
