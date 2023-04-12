@@ -12,8 +12,6 @@ RUN apk add --no-cache --virtual BuildDeps autoconf g++ linux-headers \
     && docker-php-ext-enable xdebug \
     && rm -rf /tmp/pear; apk del BuildDeps;
 
-
-
 RUN set -ex ;\
   wget -O "$COMPOSER_BIN" "https://getcomposer.org/download/$COMPOSER_VERSION/composer.phar" ;\
   printf "%s  %s\n" "$COMPOSER_SHA256SUM" "$COMPOSER_BIN" | sha256sum -c - ;\
