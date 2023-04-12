@@ -6,6 +6,8 @@ abstract class AbstractCounter implements CounterInterface
 {
     /**
      * Validate string is integer number.
+     *
+     * @throws \ValueError
      */
     protected function validateNumber(string|int $number): void
     {

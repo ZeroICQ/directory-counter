@@ -3,7 +3,7 @@
 namespace App\CountFilesIterator;
 
 use App\Event\FileOpenExceptionEvent;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class CountFilesFSIterator implements CountFilesIteratorInterface
 {
@@ -12,7 +12,7 @@ class CountFilesFSIterator implements CountFilesIteratorInterface
 
     public function __construct(
         private readonly string $rootPath,
-        protected readonly EventDispatcher $eventDispatcher
+        protected readonly EventDispatcherInterface $eventDispatcher
     ) {
     }
 
