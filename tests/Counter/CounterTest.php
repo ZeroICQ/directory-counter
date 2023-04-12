@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Counter;
+namespace App\Tests;
 
 use App\Counter\Counter;
 use PHPUnit\Framework\Attributes\DataProvider;
