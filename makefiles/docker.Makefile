@@ -1,4 +1,4 @@
-.PHONY: docker/up-local
-## Docker up local
-docker/up-local:
-	docker compose up --build -d
+.PHONY: docker/exec-sh
+## Run shell in docker
+docker/exec-sh:
+	docker compose run --rm php sh
